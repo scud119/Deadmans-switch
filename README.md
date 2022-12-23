@@ -1,2 +1,2 @@
 # Deadmans-switch
-I am attempting to create a dead-mans switch to encrypt a file with check-in functionality in order to verify user status.
+I am attempting to create a dead-mans switch to upload a file and have the user check in to verify your status. The goal is to also allow the user to add a series of email addresses in order to send the encrypted file and the key to decrypt the file, if the user does not check in for a significant portion of time. This is a tool designed to help those in places that have authoritarian governments.
