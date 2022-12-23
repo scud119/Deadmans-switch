@@ -10,7 +10,6 @@ def write_key():
 
 
 def load_key():
-    values = window.read()
     with open("key.key", "rb") as filekey:
         key = filekey.read()
     fernet = Fernet(key)
@@ -21,7 +20,6 @@ def load_key():
         encrypted_file.write(encrypted)
 
 def decrypt():
-    values = window.read()
     with open("key.key", "rb") as filekey:
         key = filekey.read()
     fernet = Fernet(key)
@@ -43,6 +41,7 @@ window = sg.Window("Demo", layout, size = (600, 150))
 event, values = window.read()
 
 while True:
+    event, values = window.read()
     if event == sg.WIN_CLOSED or event == "Exit":
         break
     elif event == "Encrypt":
