@@ -8,15 +8,38 @@ from email.mime.application import MIMEApplication
 from email.header import Header
 from email_config import gmail_pass, user, host, port
 
+Subject = ""
+sender_email = ""
 email_list = []
+body = ""
+email_servers = {}
+
 
 def email():
+    Subject = input("What would you like the subject line to be? ")
     sender_email = input("What is the email you would like these sent from? ")
     while True:
         receiver_email = input("What emails would you like these sent to? (press q to quit) ")
         if receiver_email == "q":
+            body = input("What would you like the body of the email to be? ")
             break
         email_list.append(receiver_email)
+       
+    
+def email_with_attachment():
+    messsage = MIMEMultipart()
+    message["From"] = header(sender_email)
+    message["To"] = ", ".join(email_list)
+    message["Subject"] = header(Subject)
+    message.attach(MIMEText(body, 'plain', 'utf-8'))
+    att_name = os.path.basename(key.key, values["-IN-"])
+    _f = open(key.key, values["-IN-"])
+    att = MIMEApplication(_f.read(), _subtype="txt")
+    _f.close()
+    att.add_header('Content-Disposition', 'attachment', filename=att_name)
+    message.attach(att)
+    server = smtplib.SMTP_SSL(host, port)
+    server.login(user, gmail_pass)
     
     
 def write_key():
