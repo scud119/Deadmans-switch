@@ -12,7 +12,7 @@ Subject = ""
 sender_email = ""
 email_list = []
 body = ""
-email_servers = {}
+email_servers = {"smtp.gmail.com" : }
 
 
 def email():
