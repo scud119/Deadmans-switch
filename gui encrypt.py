@@ -1,8 +1,24 @@
 from cryptography.fernet import Fernet
 import PySimpleGUI as sg
+import smptlib
+import os
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
+from email.header import Header
+from email_config import gmail_pass, user, host, port
 
+email_list = []
 
-
+def email():
+    sender_email = input("What is the email you would like these sent from? ")
+    while True:
+        receiver_email = input("What emails would you like these sent to? (press q to quit) ")
+        if receiver_email == "q":
+            break
+        email_list.append(receiver_email)
+    
+    
 def write_key():
     key = Fernet.generate_key()
     with open("key.key", "wb") as key_file:
