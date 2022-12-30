@@ -12,7 +12,7 @@ Subject = ""
 sender_email = ""
 email_list = []
 body = ""
-email_servers = {"smtp.gmail.com" : }
+SMTP = {"smtp.gmail.com" : 587, "smtp-mail.outlook.com": 587, }
 
 
 def email():
@@ -87,3 +87,4 @@ while True:
         load_key()
     elif event == "Decrypt":
         decrypt()
+
